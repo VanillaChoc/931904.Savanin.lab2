@@ -1,0 +1,24 @@
+﻿@using Web2._2.Services
+
+@{
+    if (ViewData["Result"] == null)
+    {
+        <div class="text-left">
+            <h1 class="display-4">@ViewData["Title"]</h1>
+            @using (Html.BeginForm())
+            {
+                @Html.TextBox("a","", new { type="number" })
+                @Html.DropDownList("operation", Html.GetEnumSelectList(typeof(Operation)))
+                @Html.TextBox("b","", new { type="number" })
+                <input type="submit" value="Submit" />
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-left">
+            <h1 class="display-4">Result</h1>
+            <p>@ViewData["Result"]</p>
+        </div>
+    }
+}
